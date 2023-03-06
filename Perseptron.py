@@ -59,6 +59,7 @@ if __name__ == '__main__':
     X = [(-1,-1),(-1,1),(1,-1),(1,1)]
     Y_and = [-1,-1,-1,1]
     Y_or = [-1,1,1,1]
+    Y_xor = [-1,1,1,-1]
     
     p_and = Perceptron(dim=2,lr=0.3,epoch=20)
     p_and.train(X,Y_and)
@@ -66,11 +67,16 @@ if __name__ == '__main__':
     p_or = Perceptron(dim=2,lr=0.3,epoch=20)
     p_or.train(X,Y_or)
 
+    p_xor = Perceptron(dim=2,lr=0.3,epoch=20)
+    p_xor.train(X,Y_xor)
+
     # 测试
     for x in X:
         print('AND',x,p_and.predict(x))
         print('OR',x,p_or.predict(x))
-
+    print('异或问题：')
+    for x in X:
+        print('XOR',x,p_xor.predict(x))
 
     
 
