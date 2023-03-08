@@ -20,15 +20,15 @@ class MP:
         self.u = np.dot(self.w,x)
         return self.activate_func(self.u - self.theta)
     
+if __name__ == '__main__':
+    # 设计与或非的MP模型参数
+    mp_and = MP(w=np.array([1,1]),theta=1.5)
+    mp_or = MP(w=np.array([1,1]),theta=0.5)
+    mp_not = MP(w=np.array([-2]),theta=-1)
 
-# 设计与或非的MP模型参数
-mp_and = MP(w=np.array([1,1]),theta=1.5)
-mp_or = MP(w=np.array([1,1]),theta=0.5)
-mp_not = MP(w=np.array([-2]),theta=-1)
+    for x in [(0,0),(0,1),(1,0),(1,1)]:
+        print('AND',x,mp_and.forward(x))
+        print('OR',x,mp_or.forward(x))
 
-for x in [(0,0),(0,1),(1,0),(1,1)]:
-    print('AND',x,mp_and.forward(x))
-    print('OR',x,mp_or.forward(x))
-
-for x in [0,1]:    
-    print('NOT',x,mp_not.forward(x))
+    for x in [0,1]:    
+        print('NOT',x,mp_not.forward(x))
