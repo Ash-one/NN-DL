@@ -1,3 +1,5 @@
 images/.DS_Store
 .ipynb_checkpoints/*
-minist_*
+.DS_Store
+mnist_test.csv
+mnist_train.csv
